@@ -11,7 +11,7 @@ export default function TextForm(props) {
         let newText = text.toUpperCase()
         setText(newText)
     }
-
+    
     const [text, setText] = useState("Enter the text")
 
     // text = "new value" // wrong way to change state
