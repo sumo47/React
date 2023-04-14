@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
-import TextForm from './components/TextForm'
-import Convert from './components/Convert'
+// import TextForm from './components/TextForm'
+// import Convert from './components/Convert'
+import About from './components/about'
 
 function App() {
   return (
@@ -8,8 +9,10 @@ function App() {
       <Navbar title="TextUtils" />
       
       <div className='container my-3'>
-        <Convert/>
 
+       <About/>
+
+        {/* <Convert/> */}
         {/* <TextForm heading="Enter the text to analyze" /> */}
       </div>
     </>
