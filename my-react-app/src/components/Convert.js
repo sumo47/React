@@ -29,7 +29,7 @@ export default function Convert() {
     // }
 
     function CamelCase() {
-        
+
         if (text.split(" ")[0] === "") {    //! important to Understand
             setText("provide Text first!")
         }
@@ -37,7 +37,7 @@ export default function Convert() {
             let upperCaseElement = text.split(' ')[0].split('')[0].toUpperCase()
             let firstElement = text.split(' ')[0].split('')[0]
             let newText = text.replace(firstElement, upperCaseElement)
-            setText(newText, upperCaseElement, firstElement)
+            setText(newText)
         }
     }
 
