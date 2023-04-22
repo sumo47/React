@@ -6,13 +6,18 @@ export default function Convert(props) {
 
         let newText = text.toUpperCase()
         setText(newText)
+        props.showAlert("Text has been changed to Uppercase !", "success")
     }
     function lower() {
         let newText = text.toLowerCase()
         setText(newText)
+        props.showAlert("Text has been changed to Lowercase !", "success")
+
     }
     function clear() {
         setText("")
+        props.showAlert("Text has been cleared !", "success")
+
     }
     // function mix (){
     //     let array = text.split(" ")
@@ -59,16 +64,18 @@ export default function Convert(props) {
             <button className='btn btn-outline-danger' onClick={clear}> clear </button>
             <button className='btn btn-outline-secondary mx-3' onClick={CamelCase}>Camelcase </button>
 
-            <h1>Your Text summary</h1>
-            <p className={`bg-${props.textArea} text-${props.text}`}>
-                {text.split(" ").length} words and {text.length} characters
-            </p>
-            <div className={`container bg-${props.textArea} text-${props.text}`}>
-                <p>{0.008 * text.split(" ").length} minutes to read</p>
+            <h1 className='mt-5'>Your Text summary</h1>
+            <div className="container">
+                <p className={`bg-${props.textArea} text-${props.text}`}>
+                    {text.split(" ").length} words and {text.length} characters
+                </p>
+                <div className={`container bg-${props.textArea} text-${props.text}`}>
+                    <p>{0.008 * text.split(" ").length} minutes to read</p>
+                </div>
             </div>
             <h2>Preview</h2>
-            <div className={`container`} style={{ color: "#f01411" }}>
-                <p1 className={``}>{text}</p1>
+            <div className={`container`} style={{ color: text.length > 0 ? "#a3f06c" : "#f01411" }}>
+                <p>{text.length > 0 ? text : "Enter Your text to preview !"}</p>
             </div>
         </div>
     )

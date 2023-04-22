@@ -24,8 +24,8 @@ export default function Navbar(props) {
                         <button className="btn btn-success" type="submit">Search</button>
                     </form>
                     <div className={`mx-3 form-check form-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
-                        <input class="form-check-input" type="checkbox" onClick={props.ChangeMode} role="switch" id="flexSwitchCheckDefault" />
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Light mode</label>
+                        <input className="form-check-input" type="checkbox" onClick={props.ChangeMode} role="switch" id="flexSwitchCheckDefault" />
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Light mode</label>
                     </div>
                 </div>
             </div >
