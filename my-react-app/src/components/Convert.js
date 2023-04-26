@@ -46,12 +46,36 @@ export default function Convert(props) {
         }
     }
 
+    // counting words in TextArea
+    let NoOfWord = 0
+    const CountWords = (text)=>{
+        let count = text.split(' ')
+        for(let e of count){
+            if(e.split(' ') !=  "" && e.split("").length > 1){
+                NoOfWord++
+            }
+        }
+        return NoOfWord
+    }
+ 
+    // counting charactera in TextArea
+    let NoOfChar = 0
+    const CountChar = (text) =>{
+        let array = text.split('')
+        for(let char of array){
+            if(char !== " "){
+                NoOfChar++
+            }
+        }
+        return NoOfChar
+    }
+
     const [text, setText] = useState('')
 
     return (
 
         <div className={`container`} style={{ color: props.text }}>
-            <h1>Enter some text to convert</h1>
+            <h1 >Enter some text to convert</h1>
             {/* Input gets error in console while writing text in input , why? */}
             {/* <input type="text" name="" id="" placeholder='Enter text' value={text} onChange={(event) => setText(event.target.value)} /> */}
             <div  >
@@ -67,7 +91,7 @@ export default function Convert(props) {
             <h1 className='mt-5'>Your Text summary</h1>
             <div className="container">
                 <p className={`bg-${props.textArea} text-${props.text}`}>
-                    {text.split(" ").length} words and {text.length} characters
+                    {CountWords(text)} words and {CountChar(text)} characters
                 </p>
                 <div className={`container bg-${props.textArea} text-${props.text}`}>
                     <p>{0.008 * text.split(" ").length} minutes to read</p>

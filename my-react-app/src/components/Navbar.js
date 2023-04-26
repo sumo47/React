@@ -27,6 +27,8 @@ export default function Navbar(props) {
                         <input className="form-check-input" type="checkbox" onClick={props.ChangeMode} role="switch" id="flexSwitchCheckDefault" />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Light mode</label>
                     </div>
+                    <button className="btn btn-success m-2" onClick={props.GreenMode}>Green</button>
+                    <button className="btn btn-danger" onClick={props.RedMode}>{`Red`}</button>
                 </div>
             </div >
         </nav >
