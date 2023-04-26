@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Navbar from './components/Navbar'
 // import TextForm from './components/TextForm'
 import Convert from './components/Convert'
-// import About from './components/about'
+import About from './components/about'
 import Alert from './components/Alert'
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
 
@@ -25,10 +26,10 @@ function App() {
       document.title = "Text-Utils Light mode"
 
       setInterval(() => {
-      document.title = "install Text-Utils"
+        document.title = "install Text-Utils"
       }, 2000);
       setInterval(() => {
-      document.title = "setInterval 1.5 sec"
+        document.title = "setInterval 1.5 sec"
       }, 1500);
     }
     else if (wasMode === "light") {
@@ -39,8 +40,6 @@ function App() {
       alertFunction("Dark mode successfully Enabled", "success")
       setWasMode("dark")
       document.title = "Text-Utils Dark mode"
-
-
     }
   }
 
@@ -55,7 +54,6 @@ function App() {
     setMode('danger')
     setSearch("danger")
     document.body.style.backgroundColor = '#e87b79'
-
   }
 
   const alertFunction = (message, type) => {
@@ -70,13 +68,20 @@ function App() {
 
   return (
     <>
-      <Navbar title="TextUtils" mode={mode} ChangeMode={ChangeMode} search={search} GreenMode={GreenMode} RedMode={RedMode} />
-      <Alert alert={alert} />
-      <div className='container my-3'>
-        {/* <About /> */}
-        <Convert showAlert={alertFunction} text={CssColor} textArea={search} />
-        {/* <TextForm heading="Enter the text to analyze" /> */}
-      </div>
+      <Router>
+
+        <Navbar title="TextUtils" mode={mode} ChangeMode={ChangeMode} search={search} GreenMode={GreenMode} RedMode={RedMode} about={"About"} />
+        <Alert alert={alert} />
+
+        <div className='container my-3'>
+          <Routes>
+            {/* exact will match exact route   */}
+            <Route exact path="/about" element={<About />} /> 
+            <Route exact path="/" element={<Convert showAlert={alertFunction} text={CssColor} textArea={search} />} />
+          </Routes>
+        </div>
+
+      </Router>
     </>
   );
 }
