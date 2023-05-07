@@ -95,7 +95,7 @@ export default function Convert(props) {
             <br />
 
             <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={UPPER}>UPPERCASE</button>
-            <button disabled={text.length === 0} className="btn btn-primary mx- my-1" onClick={lower}>lowercase</button>
+            <button disabled={text.length === 0} className="btn btn-primary mx-1 my-1" onClick={lower}>lowercase</button>
             <button disabled={text.length === 0} className='btn btn-outline-danger mx-1 my-1' onClick={clear}> clear </button>
             <button disabled={text.length === 0} className='btn btn-outline-secondary mx-1 my-1' onClick={CamelCase}>Camelcase </button>
             <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={copy}>Copy </button>
