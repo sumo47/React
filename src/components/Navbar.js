@@ -15,10 +15,10 @@ export default function Navbar(props) {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             {/* To avoide reloading in browser use Link-to instead of anchor tag */}
-                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                            <Link className="nav-link " aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active text-outline" to="/about">{props.about}</Link>
+                            <Link className="nav-link text-outline" to="/about">{props.about}</Link> 
                         </li>
                     </ul>
                     <form className="d-flex" role="search">

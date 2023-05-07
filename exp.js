@@ -1,17 +1,19 @@
-let text = "   "
+let text = "   f"
 
 // console.log(text.split(''))
 // console.log(text.split('').length)
 
 let x = 5
 
-text = text.split('')
-for(let e of text){
-    console.log(text.length,text)
-    if(e === " "){
-        console.log("space")
-    }
-}
+// text = text.split('')
+// for(let e of text){
+//     console.log(text.length,text)
+//     if(e === " "){
+//         console.log("space")
+//     }
+// }
+
+console.log(text.split('').filter((element)=>{return element !== " "}).length) //alternative / working fine
 
 // no = text.split(' ')
 

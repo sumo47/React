@@ -8,6 +8,16 @@ export default function Convert(props) {
         setText(newText)
         props.showAlert("Text has been changed to Uppercase !", "success")
     }
+
+    //! have to read
+    const copy = ()=>{
+        // var text = document.getElementById("my-box");
+        // text.select();
+        // text.setSelectionRange(0,9999);
+        navigator.clipboard.writeText(text);
+        // document.getSelection().removeAllRanges()
+        props.showAlert("Copied to Clipboard", "success");
+    }
     function lower() {
         let newText = text.toLowerCase()
         setText(newText)
@@ -47,28 +57,29 @@ export default function Convert(props) {
     }
 
     // counting words in TextArea
-    let NoOfWord = 0
-    const CountWords = (text)=>{
-        let count = text.split(' ')
-        for(let e of count){
-            if(e.split(' ') !=  "" && e.split("").length > 1){
-                NoOfWord++
-            }
-        }
-        return NoOfWord
-    }
- 
+    // let NoOfWord = 0
+    // const CountWords = (text)=>{
+    //     let count = text.split(' ')
+    //     for(let e of count){
+    //         if(e.split(' ') !==  "" && e.split("").length > 0){
+    //             NoOfWord++
+    //         }
+    //     }
+    //     return NoOfWord
+    // }
+
     // counting charactera in TextArea
-    let NoOfChar = 0
-    const CountChar = (text) =>{
-        let array = text.split('')
-        for(let char of array){
-            if(char !== " "){
-                NoOfChar++
-            }
-        }
-        return NoOfChar
-    }
+
+    // let NoOfChar = 0
+    // const CountChar = (text) =>{
+    //     let array = text.split('')
+    //     for(let char of array){
+    //         if(char !== " "){
+    //             NoOfChar++
+    //         }
+    //     }
+    //     return NoOfChar
+    // }
 
     const [text, setText] = useState('')
 
@@ -83,18 +94,19 @@ export default function Convert(props) {
             </div>
             <br />
 
-            <button className='btn btn-primary' onClick={UPPER}>UPPERCASE</button>
-            <button className="btn btn-primary mx-3" onClick={lower}>lowercase</button>
-            <button className='btn btn-outline-danger' onClick={clear}> clear </button>
-            <button className='btn btn-outline-secondary mx-3' onClick={CamelCase}>Camelcase </button>
+            <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={UPPER}>UPPERCASE</button>
+            <button disabled={text.length === 0} className="btn btn-primary mx- my-1" onClick={lower}>lowercase</button>
+            <button disabled={text.length === 0} className='btn btn-outline-danger mx-1 my-1' onClick={clear}> clear </button>
+            <button disabled={text.length === 0} className='btn btn-outline-secondary mx-1 my-1' onClick={CamelCase}>Camelcase </button>
+            <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={copy}>Copy </button>
 
             <h1 className='mt-5'>Your Text summary</h1>
             <div className="container">
                 <p className={`bg-${props.textArea} text-${props.text}`}>
-                    {CountWords(text)} words and {CountChar(text)} characters
+                    {text.split(/\s+/).filter((element) => { return element.length > 0 }).length} words and {text.split("").filter((element) => { return element !== " " }).length} characters
                 </p>
                 <div className={`container bg-${props.textArea} text-${props.text}`}>
-                    <p>{0.008 * text.split(" ").length} minutes to read</p>
+                    <p>{0.008 * text.split(" ").filter((element) => { return element.length > 0 }).length} minutes to read</p>
                 </div>
             </div>
             <h2>Preview</h2>
@@ -104,3 +116,4 @@ export default function Convert(props) {
         </div>
     )
 }
+// (/\s+/) regular expression

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Convert from './components/Convert'
 import About from './components/about'
 import Alert from './components/Alert'
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -76,7 +76,7 @@ function App() {
         <div className='container my-3'>
           <Routes>
             {/* exact will match exact route   */}
-            <Route exact path="/about" element={<About />} /> 
+            <Route exact path="/about" element={<About mode={mode} text={CssColor}/>} />
             <Route exact path="/" element={<Convert showAlert={alertFunction} text={CssColor} textArea={search} />} />
           </Routes>
         </div>
